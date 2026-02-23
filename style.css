@@ -1,0 +1,88 @@
+:root {
+  --txt-color: #ffffff;
+  --bg-color: #000000;
+  --heading-color: #9764f6;
+  --secondary-color: #1ae1e8;
+  --box-shadow:
+    0 4px 8px var(--heading-color), 0 1px 3px var(--secondary-color);
+}
+
+body {
+  width: 100vw;
+
+  background-color: var(--txt-color);
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+
+  /* Deine Flexbox-Konfiguration */
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+
+  /* Stellt sicher, dass der Body die ganze Höhe einnimmt */
+  min-height: 100vh;
+}
+/*Standarts*/
+h1 {
+  color: var(--heading-color);
+}
+p {
+  color: var(--txt-color);
+}
+
+.btn {
+  width: fit-content;
+
+
+  background-color: var(--heading-color);
+  color: var(--txt-color);
+  border: solid 1px transparent;
+  padding: 10px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition:
+    transform 0.2s,
+    background 0.3s;
+}
+
+.btn:hover {
+  border: solid 1px var(--secondary-color);
+  box-shadow: var(--box-shadow);
+}
+.btn:active {
+  scale: 0.9;
+}
+
+/*Header bereich*/
+
+.header-container {
+  max-width: 100%;
+  display: flex;
+  overflow: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  margin-top: 2em;
+  gap: 2em;
+  box-shadow: var(--box-shadow);
+}
+.heading-Img {
+  width: 20em;
+  height: 20em;
+  box-shadow: var(--box-shadow);
+  border-radius: 45%;
+}
+
+.head-container-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  padding-bottom: 5em;
+  align-items: center;
+}
