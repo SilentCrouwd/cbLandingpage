@@ -26,7 +26,7 @@ body {
   min-height: 100vh;
 }
 /*Standarts*/
-h1 {
+h1,strong {
   color: var(--heading-color);
 }
 p {
@@ -35,7 +35,6 @@ p {
 
 .btn {
   width: fit-content;
-
 
   background-color: var(--heading-color);
   color: var(--txt-color);
@@ -60,11 +59,12 @@ p {
 /*Header bereich*/
 
 .header-container {
-  max-width: 100%;
+  min-width: 100%;
   display: flex;
   overflow: none;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   text-align: center;
   background-color: var(--bg-color);
   border-radius: 10px;
@@ -80,9 +80,56 @@ p {
 }
 
 .head-container-right {
+  min-height: 50vw;
   display: flex;
   flex-direction: column;
   gap: 2em;
   padding-bottom: 5em;
   align-items: center;
+  justify-content: center;
 }
+.head-container-left {
+  min-width: 50vw;
+}
+
+/*Responsive Design*/
+
+/*Main-Bereich*/
+
+/*Section 1*/
+
+.main-container1 {
+  max-width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
+/* Hier sollte ein scrollfeld entstehen mit Highlight 
+wenn feld a ausgewählt dann alle anderen felder grau bzw lila
+das ausgewählte feld bekommt einen Türkisen rahmen*/
+.selling-point {
+  min-height: 33vh;
+  min-width: 100%;
+  display: flex;
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  margin-top: 0.5em;
+  gap: 2em;
+  box-shadow: var(--box-shadow);
+  align-items: center;
+  text-align: center;
+  border: solid 1px transparent;
+}
+.selling-point:hover{
+    border: solid 1px var(--secondary-color);
+    
+}
+.main-container1:hover .selling-point:not(:hover) {
+    filter: grayscale(100%)
+    opacity(0.5)
+}
+
+/*Section 2 Github und Co*/
