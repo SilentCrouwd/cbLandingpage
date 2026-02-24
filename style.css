@@ -1,6 +1,6 @@
 :root {
   --txt-color: #ffffff;
-  --bg-color: #000000;
+  --bg-color: #2c2c2c;
   --heading-color: #9764f6;
   --secondary-color: #1ae1e8;
   --box-shadow:
@@ -8,9 +8,7 @@
 }
 
 body {
-  width: 100vw;
-
-  background-color: var(--txt-color);
+  background-color: var(--bg-color);
   font-family: "Segoe UI", sans-serif;
   margin: 0;
   padding: 0;
@@ -26,7 +24,8 @@ body {
   min-height: 100vh;
 }
 /*Standarts*/
-h1,strong {
+h1,
+strong {
   color: var(--heading-color);
 }
 p {
@@ -59,9 +58,10 @@ p {
 /*Header bereich*/
 
 .header-container {
-  min-width: 100%;
+  width: 100%;
+  height: 100vh;
   display: flex;
-  overflow: none;
+
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
@@ -69,18 +69,18 @@ p {
   background-color: var(--bg-color);
   border-radius: 10px;
   margin-top: 2em;
-  gap: 2em;
+
   box-shadow: var(--box-shadow);
 }
 .heading-Img {
-  width: 20em;
-  height: 20em;
+  max-width: 15em;
+
   box-shadow: var(--box-shadow);
   border-radius: 45%;
 }
 
 .head-container-right {
-  min-height: 50vw;
+  min-height: fit-content;
   display: flex;
   flex-direction: column;
   gap: 2em;
@@ -89,24 +89,23 @@ p {
   justify-content: center;
 }
 .head-container-left {
-  min-width: 50vw;
+  min-width: 15em;
 }
 
 /*Responsive Design*/
 
 /*Main-Bereich*/
 
-/*Section 1*/
-
 .main-container1 {
-  max-width: 100%;
+  max-width: 99%;
   position: relative;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: nowrap;
-  overflow: scroll;
-  scroll-behavior: smooth;
 }
+/*Section 1*/
+
+
 /* Hier sollte ein scrollfeld entstehen mit Highlight 
 wenn feld a ausgewählt dann alle anderen felder grau bzw lila
 das ausgewählte feld bekommt einen Türkisen rahmen*/
@@ -122,14 +121,22 @@ das ausgewählte feld bekommt einen Türkisen rahmen*/
   align-items: center;
   text-align: center;
   border: solid 1px transparent;
+  /*animation: slide  ease forwards alternate;
+animation-timeline: view();
+animation-range: entry 10%  cover 30%;
+*/
 }
-.selling-point:hover{
-    border: solid 1px var(--secondary-color);
-    
-}
-.main-container1:hover .selling-point:not(:hover) {
-    filter: grayscale(100%)
-    opacity(0.5)
+.selling-point:hover {
+  border: solid 1px var(--secondary-color);
 }
 
+@keyframes slide {
+  from {
+    transform: rotateZ(180deg);
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 /*Section 2 Github und Co*/
