@@ -89,7 +89,7 @@ scroll-snap-align: start;
   border-radius: 10px;
   margin-top: 2em;
 
-  box-shadow: var(--box-shadow);
+
 }
 .heading-Img {
   width: clamp(15em, 20vw, 20em);
@@ -179,7 +179,7 @@ align-items: center;
 justify-items: center;  
 justify-content: center;
 align-content: center;
-box-shadow: var(--box-shadow);
+
 }
 .main-container2 > p {
 width: clamp(2em, 12vw, 5em);
