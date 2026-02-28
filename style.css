@@ -171,9 +171,9 @@ margin-right: 2em;
   max-width: 99%;
   height: 101vh;
 display: grid;
-grid-template-columns: repeat(4,25vh);
-grid-template-rows: repeat(5,6vw);
-column-gap: 1cap;
+grid-template-columns: repeat(4,clamp(5em, 12vh, 10em));
+grid-template-rows: repeat(5,clamp(5em, 10vh, 10em));
+column-gap: 1em;
 row-gap: 1em;
 align-items: center;
 justify-items: center;  
@@ -182,8 +182,8 @@ align-content: center;
 box-shadow: var(--box-shadow);
 }
 .main-container2 > p {
-width: clamp(5em, 5vw, 10em);
-height: clamp(5em, 5vh, 10em);
+width: clamp(2em, 12vw, 5em);
+height: clamp(2em, 7vh, 9em);
   box-shadow: var(--box-shadow);
   border-radius: 10px;
 text-align: center;
