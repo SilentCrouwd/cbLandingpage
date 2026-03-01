@@ -78,7 +78,7 @@ p {
 
 .header-container {
   width: clamp(95%, 99vw, 80%);
-  height: 100vh;
+  height: 101vh;
   display: flex;
   flex-direction: column;
   scroll-snap-align: start;
@@ -121,7 +121,7 @@ main {
 }
 .main-container1 {
   width: clamp(100%, 99vw, 100%);
-  height: 100vh;
+  height: 101vh;
   justify-content: center;
   position: relative;
   display: flex;
@@ -148,8 +148,9 @@ main {
 }
 
 .selling-point {
+  position: relative;
   height: clamp(15em, 25vh, 25vh);
-  width: clamp(25em, 50vw, 50em);
+  width: clamp(25em, 55vw, 55em);
   display: flex;
   background-color: var(--bg-color);
   padding: 0 1em 0 1em;
@@ -161,10 +162,30 @@ main {
   text-align: center;
   border: solid 1px transparent;
 }
+.selling-point::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    to right top,
+    var(--heading-color),
+    var(--secondary-color)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+}
 /*hier soll eine animation entstehen die mit js geschrieben wird das bei on view eine anaimation startet*/
 
+.selling-point:hover:after {
+  opacity: 0.2;
+}
 .selling-point:hover {
   border: solid 1px var(--secondary-color);
+
 }
 
 @keyframes slide {
@@ -181,7 +202,7 @@ main {
 .main-container2 {
 
   max-width: 99%;
-  height: 100vh;
+  height: 101vh;
   display: grid;
   grid-template-columns: repeat(4, clamp(6.5em, 12vw, 60em));
   grid-template-rows: repeat(7, clamp(5em, 10vh, 60em));
@@ -255,24 +276,24 @@ opacity: 0.2;
 
 @keyframes popup {
   from {
-    scale: 0;
+    opacity: 0;
   }
   to {
-    scale: 1;
+    opacity: 1;
   }
 }
 
 /*Section 2 Github und Co*/
 .main-container3 {
   max-width: 99%;
-  height: 100vh;
+  height: 101vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
 }
 .animation {
-  animation: popup ease 3s forwards alternate;
+  animation: popup ease 4s forwards alternate;
 }
 .animationPlate {
   transition: opacity 1s ease;
