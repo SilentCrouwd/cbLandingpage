@@ -6,21 +6,18 @@
   --box-shadow:
     0 4px 8px var(--heading-color), 0 1px 3px var(--secondary-color);
 }
-*{
+* {
   scrollbar-width: none;
 }
-html{
-    scroll-snap-type: y mandatory; 
+html {
+  scroll-snap-type: y mandatory;
 
   scroll-behavior: smooth;
-     
-
 }
-section{
+section {
   scroll-snap-align: center;
 }
 body {
-
   line-height: 1.5;
   background-color: var(--bg-color);
   font-family: "Segoe UI", sans-serif;
@@ -34,19 +31,23 @@ body {
   align-items: center;
   flex-direction: column;
 
-
   /* Stellt sicher, dass der Body die ganze Höhe einnimmt */
   min-height: 100vh;
 }
 /*Standarts*/
 h1,
+h2,
+h3 {
+  color: var(--heading-color);
+  line-height: 1.2;
+}
 strong {
   font-size: clamp(1.5em, 2vw, 1.5em);
   line-height: 1.2;
   color: var(--heading-color);
 }
 p {
-  font-size: clamp(1em, 1vw, 1em);
+  font-size: clamp(0.8em, 1vw, 1em);
   color: var(--txt-color);
 }
 
@@ -76,11 +77,11 @@ p {
 /*Header bereich*/
 
 .header-container {
-  width: clamp(100%, 99vw, 100%);
-  height: 101vh;
+  width: clamp(95%, 99vw, 80%);
+  height: 100vh;
   display: flex;
   flex-direction: column;
-scroll-snap-align: start;
+  scroll-snap-align: start;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
@@ -88,8 +89,6 @@ scroll-snap-align: start;
   background-color: var(--bg-color);
   border-radius: 10px;
   margin-top: 2em;
-
-
 }
 .heading-Img {
   width: clamp(15em, 20vw, 20em);
@@ -113,42 +112,54 @@ scroll-snap-align: start;
 
 /*Main-Bereich*/
 main {
-
+  padding: 0;
+  margin: 0;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-
 }
 .main-container1 {
- 
-
   width: clamp(100%, 99vw, 100%);
-  height: 101vh;
+  height: 100vh;
   justify-content: center;
   position: relative;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-align-items: center;
+  align-items: center;
   margin-bottom: 1em;
 }
 /*Section 1*/
-
+.about {
+  font-size: clamp(1.5em, 3vw, 2.5em);
+  margin-top: 2em;
+  position: relative;
+  text-align: center;
+  width: clamp(15em, 99vw, 99vw);
+}
+.blob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(5em, 8vw, 10em);
+  opacity: 0.2;
+}
 
 .selling-point {
-  height:clamp(13em,33vh,33vh);
-width: clamp(20em, 25vw, 75vw);
-margin-right: 2em;
+  height: clamp(15em, 25vh, 25vh);
+  width: clamp(25em, 50vw, 50em);
   display: flex;
   background-color: var(--bg-color);
-  margin-top: 0.5em;
-  gap: 2em;
+  padding: 0 1em 0 1em;
+
+  gap: 0.5em;
   flex-wrap: nowrap;
   box-shadow: var(--box-shadow);
   align-items: center;
   text-align: center;
   border: solid 1px transparent;
-
-
 }
 /*hier soll eine animation entstehen die mit js geschrieben wird das bei on view eine anaimation startet*/
 
@@ -168,61 +179,83 @@ margin-right: 2em;
 }
 /*maincontainer 2*/
 .main-container2 {
+
   max-width: 99%;
-  height: 101vh;
-display: grid;
-grid-template-columns: repeat(4,clamp(5em, 12vw, 50em));
-grid-template-rows: repeat(5,clamp(5em, 10vh, 50em));
-column-gap: 1em;
-row-gap: 1em;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(4, clamp(6.5em, 12vw, 60em));
+  grid-template-rows: repeat(7, clamp(5em, 10vh, 60em));
+  column-gap: 1em;
+  row-gap: 1em;
 align-items: center;
-justify-items: center;  
-justify-content: center;
-align-content: center;
+  justify-items: center;
+
 
 }
 .main-container2 > p {
-box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow);
   text-align: center;
-
 }
-.plate{
-align-content: center;
-text-align: center;
-height: clamp(5em, 10vh, 60em);
-  width: clamp(5em, 12vw, 50em);
-  position: relative;
-
-}
-.plate::after{
-  content: '';
-  position: absolute;
-  top: 0; left: 0; width: 100%;height: 100%;
-  background-image: linear-gradient(to right top,var(--heading-color),var(--secondary-color));
-  opacity: 0;
-  transition: opacity 0.3s ease;
-
-}
-.plate:hover::after{
-
-  opacity: 0.5;
-}
-.middle-plate{
+.plate {
+  padding: 0.1em;
   align-content: center;
   text-align: center;
-  opacity: 0;
-  height: clamp(10em,12vh,75em);
-  width: clamp(10em, 23vw, 70em);
-
-
- 
-grid-column: 2/4;
-grid-row: 3/5;
+  height: clamp(4.5em, 10vh, 60em);
+  width: clamp(8em, 12vw, 50em);
+  position: relative;
 }
-/*Hier soll eine animation entstehen die mit js geschrieben wird das bei on view eine anaimation startet*/
+.plate::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    to right top,
+    var(--heading-color),
+    var(--secondary-color)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.plate:hover::after {
+  opacity: 0.5;
+}
+.middle-plate {
+  align-content: center;
+  text-align: center;
+  opacity: 1;
+  height: clamp(12em, 10vh, 60em);
+  width: clamp(15em, 20vw, 65em);
+  grid-column: 2/4;
+  grid-row: 4/6;
+}
+.aboutTech {
+    font-size: clamp(1.5em, 3vw, 2.5em);
+  grid-column: 1/5;
+grid-row:1/3; 
+  text-align: center;
+  width: clamp(15em, 99vw, 99vw);
+ position: relative;
+  z-index: 2;
+
+  align-content: center;
+
+}
+.blob2 {
+opacity: 0.2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(5em, 8vw, 10em);
+
+}
+
 @keyframes popup {
   from {
-    scale:0
+    scale: 0;
   }
   to {
     scale: 1;
@@ -232,15 +265,15 @@ grid-row: 3/5;
 /*Section 2 Github und Co*/
 .main-container3 {
   max-width: 99%;
-  height: 101vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
 }
-.animation{
-      animation: popup ease  3s forwards alternate;
+.animation {
+  animation: popup ease 3s forwards alternate;
 }
-.animationPlate{
-transition: opacity 1s ease;
+.animationPlate {
+  transition: opacity 1s ease;
 }
