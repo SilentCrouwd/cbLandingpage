@@ -2,7 +2,7 @@
   --txt-color: #ffffff;
   --bg-color: #2c2c2c;
   --heading-color: #9764f6;
-  --secondary-color: #1ae1e8;
+  --secondary-color:#1ae1e8;
   --box-shadow:
     0 4px 8px var(--heading-color), 0 1px 3px var(--secondary-color);
 }
@@ -47,6 +47,7 @@ strong {
   color: var(--heading-color);
 }
 p {
+  text-align: center;
   font-size: clamp(0.8em, 1vw, 1em);
   color: var(--txt-color);
 }
@@ -176,7 +177,6 @@ main {
   );
   opacity: 0;
   transition: opacity 0.3s ease;
-
 }
 /*hier soll eine animation entstehen die mit js geschrieben wird das bei on view eine anaimation startet*/
 
@@ -185,22 +185,11 @@ main {
 }
 .selling-point:hover {
   border: solid 1px var(--secondary-color);
-
 }
 
-@keyframes slide {
-  from {
-    transform: rotateZ(180deg);
-    opacity: 0;
-    filter: blur(6px);
-  }
-  to {
-    opacity: 1;
-  }
-}
+
 /*maincontainer 2*/
 .main-container2 {
-
   max-width: 99%;
   height: 101vh;
   display: grid;
@@ -208,14 +197,12 @@ main {
   grid-template-rows: repeat(7, clamp(5em, 10vh, 60em));
   column-gap: 1em;
   row-gap: 1em;
-align-items: center;
+  align-items: center;
   justify-items: center;
-
-
 }
 .main-container2 > p {
   box-shadow: var(--box-shadow);
-  text-align: center;
+
 }
 .plate {
   padding: 0.1em;
@@ -246,42 +233,33 @@ align-items: center;
 .middle-plate {
   align-content: center;
   text-align: center;
-  opacity: 1;
+  opacity: 0;
   height: clamp(12em, 10vh, 60em);
   width: clamp(15em, 20vw, 65em);
   grid-column: 2/4;
   grid-row: 4/6;
 }
 .aboutTech {
-    font-size: clamp(1.5em, 3vw, 2.5em);
+  font-size: clamp(1.5em, 3vw, 2.5em);
   grid-column: 1/5;
-grid-row:1/3; 
+  grid-row: 1/3;
   text-align: center;
   width: clamp(15em, 99vw, 99vw);
- position: relative;
+  position: relative;
   z-index: 2;
 
   align-content: center;
-
 }
 .blob2 {
-opacity: 0.2;
+  opacity: 0.2;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: clamp(5em, 8vw, 10em);
-
 }
 
-@keyframes popup {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
+
 
 /*Section 2 Github und Co*/
 .main-container3 {
@@ -292,8 +270,83 @@ opacity: 0.2;
   align-items: center;
   justify-content: space-evenly;
 }
+.skill-container {
+  position: relative;
+  width: clamp(24em, 45vw, 35em);
+  height: clamp(25em, 50vh, 35em);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+scrollbar-color: var(--secondary-color) var(--heading-color);
+box-shadow: var(--box-shadow);
+
+position: relative;
+}
+
+
+
+
+.card {
+
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+  margin-right: 1em;
+flex: 0 0 100%; 
+scroll-snap-align: center;
+  width: 100%;
+  height: 100%;
+
+  background-image: linear-gradient(
+    to right top,
+    #9764f649,
+      #1ae1e84d
+
+    
+  );
+}
+.skill{
+  padding: 1em;
+}
+.card-icon{
+  width: clamp(5em,10vh,15em);
+  height: auto;
+}
+
+
+
+@keyframes popup {
+  from {
+filter: blur(15px);
+  }
+  to {
+    filter: blur(0px);
+  }
+}
+
+
+@keyframes slide {
+  from {
+    transform: rotateZ(180deg);
+    opacity: 0;
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .animation {
-  animation: popup ease 4s forwards alternate;
+  animation: popup ease 2s alternate forwards ;
 }
 .animationPlate {
   transition: opacity 1s ease;

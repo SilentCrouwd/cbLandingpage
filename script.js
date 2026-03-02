@@ -85,3 +85,16 @@ hoveredplate.forEach((element, index) => {
     });
   });
 });
+//Horizontales SCrollen
+
+const scrollContainer = document.querySelector('.skill-container');
+
+scrollContainer.addEventListener("wheel", (event) => {
+    event.preventDefault();
+    
+    // Wir nutzen scrollBy für eine sauberere Interaktion mit CSS-Snapping
+    scrollContainer.scrollBy({
+        left: event.deltaY,
+        behavior: "auto" // 'smooth' würde sich hier mit dem Scroll-Rad beißen
+    });
+}, { passive: false });
