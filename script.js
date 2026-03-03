@@ -98,3 +98,51 @@ scrollContainer.addEventListener("wheel", (event) => {
         behavior: "auto" // 'smooth' würde sich hier mit dem Scroll-Rad beißen
     });
 }, { passive: false });
+
+
+
+
+// Hier entsteht eine Galierie
+
+const galerieContainer=document.querySelector('.galerie-container');
+const galiereCard=document.querySelectorAll('.galerie-card');
+
+galiereCard.forEach(element => {
+  element.addEventListener("mouseover",(e)=>{
+element.classList.add('active');
+element.classList.remove('inactive')
+// element.style.scale='1';
+  })
+  element.addEventListener('mouseout',(e)=>{
+    element.classList.add('inactive');
+    element.classList.remove('active');
+  })
+
+
+  
+});
+// console.log(galerieContainer,galiereCard)
+
+// console.log(btnScrollLeft,btnScrollRight)
+
+function scrollOnClick(direction) {
+    const scrollContainer = document.querySelector('.galerie-container');
+    // Wir definieren einen festen Wert, z.B. 300px pro Klick
+    const scrollAmount = 300; 
+
+    if (direction === 'left') {
+        scrollContainer.scrollBy({
+            left: -scrollAmount, // Negativ für links
+            behavior: "smooth"   // Beim Button-Klick ist smooth super!
+        });
+    } else if (direction === 'right') {
+        scrollContainer.scrollBy({
+            left: scrollAmount,  // Positiv für rechts
+            behavior: "smooth"
+        });
+    }
+}
+
+// Event Listener für deine Buttons:
+document.getElementById('scoll-left').addEventListener('click', () => scrollOnClick('left'));
+document.getElementById('scroll-right').addEventListener('click', () => scrollOnClick('right'));
