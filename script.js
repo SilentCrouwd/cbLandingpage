@@ -34,7 +34,6 @@ animated.forEach((elm) => {
   myobserver.observe(elm);
 });
 
-
 // --- 2. DYNAMISCHE INFO-PLATTE (Skill-Section) ---
 // Daten-Array für die Einzeiler/Schlagwörter
 const plateinfo = [
@@ -49,12 +48,21 @@ const plateinfo = [
   { id: 8, info: "Interfaces, die durch Bewegung zum Leben erwachen." },
   { id: 9, info: "Seit den ersten PC-Tagen fasziniert von Bits und Bytes." },
   { id: 10, info: "Ich suche nicht nach Fehlern, sondern nach Lösungen." },
-  { id: 11, info: "Stillstand ist im Code keine Option – Weiterbildung ab Mai." },
-  { id: 12, info: "Technik ist nur dann gut, wenn der Mensch sie gerne nutzt." },
+  {
+    id: 11,
+    info: "Stillstand ist im Code keine Option – Weiterbildung ab Mai.",
+  },
+  {
+    id: 12,
+    info: "Technik ist nur dann gut, wenn der Mensch sie gerne nutzt.",
+  },
   { id: 13, info: "Webentwicklung als echtes digitales Handwerk." },
   { id: 14, info: "Moderne Stacks für skalierbare und schnelle Webseiten." },
   { id: 15, info: "Schnelle Ladezeiten durch optimierte Assets und Code." },
-  { id: 16, info: "Die Brücke zwischen Design-Vision und technischer Realität." },
+  {
+    id: 16,
+    info: "Die Brücke zwischen Design-Vision und technischer Realität.",
+  },
 ];
 
 const hoveredplate = document.querySelectorAll(".plate");
@@ -66,7 +74,7 @@ hoveredplate.forEach((element, index) => {
     if (plateinfo[index] !== undefined) {
       infoPlate.style.opacity = "1";
       infoPlate.innerHTML = ""; // Container leeren
-      
+
       const p = document.createElement("p");
       p.textContent = plateinfo[index].info;
       infoPlate.appendChild(p);
@@ -83,45 +91,46 @@ hoveredplate.forEach((element, index) => {
   });
 });
 
-
 // --- 3. HORIZONTALES SCROLLEN (Skill-Container) ---
-const scrollContainer = document.querySelector('.skill-container');
+const scrollContainer = document.querySelector(".skill-container");
 
 // Konvertiert vertikales Mausrad-Scrollen in horizontales Scrollen
-scrollContainer.addEventListener("wheel", (event) => {
+scrollContainer.addEventListener(
+  "wheel",
+  (event) => {
     event.preventDefault(); // Verhindert das normale Seitenscrollen
-    
-    scrollContainer.scrollBy({
-        left: event.deltaY,
-        behavior: "auto" // 'auto' für unmittelbare Reaktion auf das Mausrad
-    });
-}, { passive: false });
 
+    scrollContainer.scrollBy({
+      left: event.deltaY,
+      behavior: "auto", // 'auto' für unmittelbare Reaktion auf das Mausrad
+    });
+  },
+  { passive: false },
+);
 
 // --- 4. GALERIE-INTERAKTION (Smooth Hover & Snapping) ---
-const galerieContainer = document.querySelector('.galerie-container');
-const galiereCard = document.querySelectorAll('.galerie-card');
+const galerieContainer = document.querySelector(".galerie-container");
+const galiereCard = document.querySelectorAll(".galerie-card");
 
-galiereCard.forEach(element => {
+galiereCard.forEach((element) => {
   let hoverTimeout;
 
   // Mouseenter mit Delay gegen "flackernde" Animationen am Rand
   element.addEventListener("mouseenter", () => {
     clearTimeout(hoverTimeout);
     hoverTimeout = setTimeout(() => {
-      element.classList.add('active');
-      element.classList.remove('inactive');
-    }, 200); 
+      element.classList.add("active");
+      element.classList.remove("inactive");
+    }, 200);
   });
 
   // Mouseleave setzt die Karte zurück
-  element.addEventListener('mouseleave', () => {
+  element.addEventListener("mouseleave", () => {
     clearTimeout(hoverTimeout);
-    element.classList.add('inactive');
-    element.classList.remove('active');
+    element.classList.add("inactive");
+    element.classList.remove("active");
   });
 });
-
 
 // --- 5. GALERIE-NAVIGATION (Button-Steuerung) ---
 /**
@@ -129,31 +138,71 @@ galiereCard.forEach(element => {
  * @param {string} direction - 'left' oder 'right'
  */
 function scrollOnClick(direction) {
-    const scrollContainer = document.querySelector('.galerie-container');
-    const scrollAmount = 300; // Pixelwert für einen Scroll-Schritt
+  const scrollContainer = document.querySelector(".galerie-container");
+  const scrollAmount = 300; // Pixelwert für einen Scroll-Schritt
 
-    if (direction === 'left') {
-        scrollContainer.scrollBy({
-            left: -scrollAmount,
-            behavior: "smooth"   
-        });
-    } else if (direction === 'right') {
-        scrollContainer.scrollBy({
-            left: scrollAmount,  
-            behavior: "smooth"
-        });
+  if (direction === "left") {
+    scrollContainer.scrollBy({
+      left: -scrollAmount,
+      behavior: "smooth",
+    });
+  } else if (direction === "right") {
+    scrollContainer.scrollBy({
+      left: scrollAmount,
+      behavior: "smooth",
+    });
+  }
+}
+
+// --- Github Projekt Beschreibung ---
+
+// Selektiert den Container (das Eltern-Element), in dem die Beschreibung erscheinen soll
+const infounsichtbar = document.getElementById("unsichtbar");
+
+// Selektiert alle Elemente mit der Klasse "discription" (vermutlich die Info-Icons)
+const discriptionIcon = document.querySelectorAll(".discription");
+
+// Selektiert alle Projektbilder, um deren Deckkraft später zu manipulieren
+const img = document.querySelectorAll(".card-img");
+
+// Iteriert über jedes gefundene Info-Icon
+discriptionIcon.forEach((element, index) => {
+  // Fügt jedem Icon einen Klick-Event-Listener hinzu
+  element.addEventListener("click", () => {
+    // PRÜFUNG: Ist der Info-Container aktuell leer?
+    if (infounsichtbar.textContent === "") {
+      // 1. Erstellt ein neues Absatz-Element (<p>) im Speicher
+      const repoInfo = document.createElement("p");
+
+
+      //
+      //  hier entsteht noch ein Array für die Projekt Daten
+      //
+      //
+      // 2. Weist dem neuen Element den gewünschten Text zu 
+      repoInfo.textContent = "test 123";
+
+      // 3. Setzt Klassen für das Styling (kombiniert zwei Klassen: 'p' und 'repoinfo')
+      repoInfo.className = "p repoinfo";
+
+      // 4. Fügt die Animations-Klasse hinzu, die du im CSS definiert hast
+      repoInfo.classList.add("animation");
+
+      // 5. Fügt das fertige <p>-Element in den Container "infounsichtbar" ein
+      infounsichtbar.appendChild(repoInfo);
+
+      // 6. Setzt die Deckkraft des zugehörigen Bildes auf 30%, um den Fokus auf den Text zu legen
+      // Hier wird der 'index' genutzt, damit genau das richtige Bild angesprochen wird
+      img[index].style.opacity = "0.3";
     }
-}
+    // FALLS NICHT LEER: (Der User klickt erneut oder ein Text ist bereits da)
+    else {
+      // 1. Leert den Inhalt des Containers komplett (löscht das <p>-Element)
+      // Das ist wichtig, damit das Element beim nächsten Klick wieder erstellt werden kann
+      infounsichtbar.innerHTML = "";
 
-// Event Listener für die Galerie-Navigations-Buttons
-// Hinweis: ID 'scoll-left' (Tippfehler beachtet)
-document.getElementById('scoll-left').addEventListener('click', () => scrollOnClick('left'));
-document.getElementById('scroll-right').addEventListener('click', () => scrollOnClick('right'));
-
-//Github link
-const gitImg=document.getElementById('git').addEventListener('click',()=> goToGit());
-
-//Funktion go to git
-function goToGit(){
-  window.open('https://github.com/SilentCrouwd?tab=repositories');
-}
+      // 2. Setzt die Deckkraft des Bildes wieder auf 100% (Normalzustand)
+      img[index].style.opacity = "1";
+    }
+  });
+});
