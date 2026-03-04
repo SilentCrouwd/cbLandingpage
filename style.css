@@ -376,6 +376,11 @@ background-image: linear-gradient(
   scroll-snap-align: center;
 scale:0.7;
 }
+.unsichtbar{
+
+  grid-column: 2;
+  grid-row: 1/4;
+}
 .card-img{
 
 
@@ -396,6 +401,15 @@ grid-row: 1;
   cursor: pointer;
 }
 .git:hover{
+fill: var(--secondary-color);
+transition: all ease 1s ;
+
+}
+.discription{
+  grid-column: 1;
+  grid-row: 2;
+}
+.discription:hover{
 fill: var(--secondary-color);
 transition: all ease 1s ;
 
