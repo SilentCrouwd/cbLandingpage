@@ -151,10 +151,24 @@ function scrollOnClick(direction) {
       left: scrollAmount,
       behavior: "smooth",
     });
+
   }
 }
+    document.getElementById('scoll-left').addEventListener('click', () => scrollOnClick('left'));
+document.getElementById('scroll-right').addEventListener('click', () => scrollOnClick('right'));
 
 // --- Github Projekt Beschreibung ---
+
+
+const gitImg=document.querySelectorAll('.git');
+gitImg.forEach(element => {
+  element.addEventListener('click',() => loadgit());
+  
+});
+function loadgit(){
+  window.open('https://github.com/SilentCrouwd?tab=repositories');
+}
+
 
 // Selektiert den Container (das Eltern-Element), in dem die Beschreibung erscheinen soll
 const infounsichtbar = document.getElementById("unsichtbar");
