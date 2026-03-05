@@ -182,7 +182,15 @@ const repositoryInfo = [
     infoJs:
       "Zustandsmanagement: Die Funktionen (toggleSignIn, toggleSignUp, toggleBack) steuern den Stapel, indem sie CSS-Klassen (active, active2) hinzufügen oder entfernen.Rendering-Fix: In toggleBack wird requestAnimationFrame genutzt, um sicherzustellen, dass der Browser das Entfernen der alten Klassen verarbeitet, bevor die neue Animation startet.",
   },
-  { id: 1, info: "Code schreiben, den nicht nur der Compiler versteht." },
+  { 
+    id: 1,
+     info: "Code schreiben, den nicht nur der Compiler versteht.",
+    infoCss:
+      "Optik: Das Design nutzt einen modernen Look mit radialen Verläufen und starken Schatten (box-shadow), um Tiefe zu erzeugen. Orange (#ff6d19) dient als konsistente Akzentfarbe.Animationen: * @keyframes switch: Simuliert das Aussortieren einer Karte, indem sie zur Seite gleitet und sich dann mit verändertem z-index wieder in den Stapel einfügt.",
+    infoJs:
+      "Zustandsmanagement: Die Funktionen (toggleSignIn, toggleSignUp, toggleBack) steuern den Stapel, indem sie CSS-Klassen (active, active2) hinzufügen oder entfernen.Rendering-Fix: In toggleBack wird requestAnimationFrame genutzt, um sicherzustellen, dass der Browser das Entfernen der alten Klassen verarbeitet, bevor die neue Animation startet.",
+   },
+   
   {
     id: 2,
     info: "Wo komplexe Algorithmen auf ästhetisches Design treffen.",
@@ -197,7 +205,7 @@ const repositoryInfo = [
 // ########################## DIscription #######################
 // Discription
 // Selektiert den Container (das Eltern-Element), in dem die Beschreibung erscheinen soll
-const infounsichtbar = document.getElementById("unsichtbar");
+const infounsichtbar = document.querySelectorAll(".unsichtbar");
 
 // Selektiert alle Elemente mit der Klasse "discription" (vermutlich die Info-Icons)
 const discriptionIcon = document.querySelectorAll(".discription");
@@ -209,14 +217,15 @@ const img = document.querySelectorAll(".card-img");
 discriptionIcon.forEach((element, index) => {
   // Fügt jedem Icon einen Klick-Event-Listener hinzu
   element.addEventListener("click", () => {
+
     // PRÜFUNG: Ist der Info-Container aktuell leer?
-    if (infounsichtbar.textContent === "") {
+    if (infounsichtbar[index].textContent === "") {
       const repoInfo = document.createElement("p");
 
       repoInfo.textContent = repositoryInfo[index].info;
       repoInfo.className = "p repoinfo";
       repoInfo.classList.add("animationGalerie");
-      infounsichtbar.appendChild(repoInfo);
+      infounsichtbar[index].appendChild(repoInfo);
       img[index].classList.remove(
         "animationGalierereverse",
         "animationGalerie",
@@ -225,7 +234,7 @@ discriptionIcon.forEach((element, index) => {
 
       img[index].classList.add("animationGalierereverse");
     } else {
-      infounsichtbar.innerHTML = "";
+      infounsichtbar[index].innerHTML = "";
       img[index].classList.remove(
         "animationGalierereverse",
         "animationGalerie",
@@ -241,13 +250,13 @@ const cssImg = document.querySelectorAll(".css-galerie");
 
 cssImg.forEach((element, index) => {
   element.addEventListener("click", () => {
-    if (infounsichtbar.textContent === "") {
+    if (infounsichtbar[index].textContent === "") {
       const cssInfo = document.createElement("p");
 
       cssInfo.textContent = repositoryInfo[index].infoCss;
       cssInfo.className = "p repoinfo";
       cssInfo.classList.add("animationGalerie");
-      infounsichtbar.appendChild(cssInfo);
+      infounsichtbar[index].appendChild(cssInfo);
       img[index].classList.remove(
         "animationGalierereverse",
         "animationGalerie",
@@ -256,7 +265,7 @@ cssImg.forEach((element, index) => {
 
       img[index].classList.add("animationGalierereverse");
     } else {
-      infounsichtbar.innerHTML = "";
+      infounsichtbar[index].innerHTML = "";
       img[index].classList.remove(
         "animationGalierereverse",
         "animationGalerie",
@@ -272,13 +281,12 @@ const jsImg = document.querySelectorAll(".js-galerie");
 
 jsImg.forEach((element, index) => {
   element.addEventListener("click", () => {
-    if (infounsichtbar.textContent === "") {
+    if (infounsichtbar[index].textContent === "") {
       const jsInfo = document.createElement("p");
-
       jsInfo.textContent = repositoryInfo[index].infoJs;
       jsInfo.className = "p repoinfo";
       jsInfo.classList.add("animationGalerie");
-      infounsichtbar.appendChild(jsInfo);
+      infounsichtbar[index].appendChild(jsInfo);
       img[index].classList.remove(
         "animationGalierereverse",
         "animationGalerie",
@@ -287,7 +295,7 @@ jsImg.forEach((element, index) => {
 
       img[index].classList.add("animationGalierereverse");
     } else {
-      infounsichtbar.innerHTML = "";
+      infounsichtbar[index].innerHTML = "";
       img[index].classList.remove(
         "animationGalierereverse",
         "animationGalerie",
