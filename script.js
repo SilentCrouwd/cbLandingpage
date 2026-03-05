@@ -182,48 +182,71 @@ const repositoryInfo = [
     infoJs:
       "Zustandsmanagement: Die Funktionen (toggleSignIn, toggleSignUp, toggleBack) steuern den Stapel, indem sie CSS-Klassen (active, active2) hinzufügen oder entfernen.Rendering-Fix: In toggleBack wird requestAnimationFrame genutzt, um sicherzustellen, dass der Browser das Entfernen der alten Klassen verarbeitet, bevor die neue Animation startet.",
   },
-  { 
-    id: 1,
-     info: "Code schreiben, den nicht nur der Compiler versteht.",
-    infoCss:
-      "Optik: Das Design nutzt einen modernen Look mit radialen Verläufen und starken Schatten (box-shadow), um Tiefe zu erzeugen. Orange (#ff6d19) dient als konsistente Akzentfarbe.Animationen: * @keyframes switch: Simuliert das Aussortieren einer Karte, indem sie zur Seite gleitet und sich dann mit verändertem z-index wieder in den Stapel einfügt.",
-    infoJs:
-      "Zustandsmanagement: Die Funktionen (toggleSignIn, toggleSignUp, toggleBack) steuern den Stapel, indem sie CSS-Klassen (active, active2) hinzufügen oder entfernen.Rendering-Fix: In toggleBack wird requestAnimationFrame genutzt, um sicherzustellen, dass der Browser das Entfernen der alten Klassen verarbeitet, bevor die neue Animation startet.",
-   },
-   
   {
-    id: 2,
-   info: "Code schreiben, den nicht nur der Compiler versteht.",
-    infoCss:
-      "Optik: Das Design nutzt einen modernen Look mit radialen Verläufen und starken Schatten (box-shadow), um Tiefe zu erzeugen. Orange (#ff6d19) dient als konsistente Akzentfarbe.Animationen: * @keyframes switch: Simuliert das Aussortieren einer Karte, indem sie zur Seite gleitet und sich dann mit verändertem z-index wieder in den Stapel einfügt.",
+    id: 1,
+    info: "Dies ist ein funktionaler, webbasierter Taschenrechner, der über die Standard-Rechenarten hinaus personalisierbare Designs und eine Cheat-Funktion für geometrische Formeln bietet.",
+    infoCss: `
+   Rechenoperationen: Die Kernlogik nutzt die eval()-Funktion, um mathematische Ausdrücke direkt aus dem Display-String zu berechnen.
+
+Sonderfunktionen:
+
+Prozentrechnung: Eine spezielle Logik rechnet den aktuellen Wert in einen Prozentwert um.
+
+"Cheat"-Modus: Über ein Dropdown-Menü können Formeln für Umfang/Durchmesser von Kreisen, Quadraten und Rechtecken direkt im Display angezeigt werden.
+    `,
     infoJs:
       "Zustandsmanagement: Die Funktionen (toggleSignIn, toggleSignUp, toggleBack) steuern den Stapel, indem sie CSS-Klassen (active, active2) hinzufügen oder entfernen.Rendering-Fix: In toggleBack wird requestAnimationFrame genutzt, um sicherzustellen, dass der Browser das Entfernen der alten Klassen verarbeitet, bevor die neue Animation startet.",
   },
-  { id: 3, 
+
+  {
+    id: 2,
+    info: "Dynamische ToDo-App Dieses Projekt ist eine funktionsreiche Aufgabenverwaltung, die über eine einfache Liste hinausgeht. Sie unterstützt mehrere Listen-Kategorien, eine visuelle Trennung von erledigten Aufgaben und integriert sogar eine externe API für zusätzlichen Content.",
+    infoCss: `
+ Layout: Das Design nutzt ein 3-Spalten-Grid (grid-template-columns: 250px 1fr 250px):
+
+Links: Navigation und Listen-Management (mit einem coolen Hover-Slide-Effekt).
+
+Mitte: Der Hauptbereich für die aktuelle ToDo-Liste.
+
+Rechts: Bereich für die API-Daten (Cat Facts).
+
+Interaktivität: Die linke Seitenleiste ist platzsparend konzipiert. Sie ist standardmäßig fast vollständig aus dem Sichtfeld geschoben (translateX(-180px)) und gleitet bei Hover sanft herein.
+    `,
+    infoJs: `
+    Listen-Management: Die App verwaltet Aufgaben in einem komplexen lists-Array aus Objekten. Dies ermöglicht es, verschiedene Listen (Kategorien) zu erstellen und zwischen ihnen zu wechseln.
+
+Aufgaben-Status: * Beim Abhaken einer Aufgabe (checkedTask) wird nicht nur der Text durchgestrichen, sondern das gesamte Element physisch in den Bereich .taskDone verschoben.
+
+Eine Löschfunktion ermöglicht das Entfernen einzelner Tasks oder ganzer Listen.
+
+API-Integration: Ein besonderes Feature ist die Funktion addCatData. Hier wird mittels fetch die Cat Fact API aufgerufen, um einen zufälligen Katzen-Fakt in der rechten Seitenleiste anzuzeigen.
+    `,
+  },
+  {
+    id: 3,
     info: "Responsive Erlebnisse, die auf jedem Screen glänzen.",
     infoCss:
       "Optik: Das Design nutzt einen modernen Look mit radialen Verläufen und starken Schatten (box-shadow), um Tiefe zu erzeugen. Orange (#ff6d19) dient als konsistente Akzentfarbe.Animationen: * @keyframes switch: Simuliert das Aussortieren einer Karte, indem sie zur Seite gleitet und sich dann mit verändertem z-index wieder in den Stapel einfügt.",
     infoJs:
       "Zustandsmanagement: Die Funktionen (toggleSignIn, toggleSignUp, toggleBack) steuern den Stapel, indem sie CSS-Klassen (active, active2) hinzufügen oder entfernen.Rendering-Fix: In toggleBack wird requestAnimationFrame genutzt, um sicherzustellen, dass der Browser das Entfernen der alten Klassen verarbeitet, bevor die neue Animation startet.",
-  
   },
-   
-    {
+
+  {
     id: 4,
     info: "Stylesheets sind für mich keine Pflicht, sondern Kunst.",
     infoCss:
       "Optik: Das Design nutzt einen modernen Look mit radialen Verläufen und starken Schatten (box-shadow), um Tiefe zu erzeugen. Orange (#ff6d19) dient als konsistente Akzentfarbe.Animationen: * @keyframes switch: Simuliert das Aussortieren einer Karte, indem sie zur Seite gleitet und sich dann mit verändertem z-index wieder in den Stapel einfügt.",
     infoJs:
       "Zustandsmanagement: Die Funktionen (toggleSignIn, toggleSignUp, toggleBack) steuern den Stapel, indem sie CSS-Klassen (active, active2) hinzufügen oder entfernen.Rendering-Fix: In toggleBack wird requestAnimationFrame genutzt, um sicherzustellen, dass der Browser das Entfernen der alten Klassen verarbeitet, bevor die neue Animation startet.",
-  
   },
-  { id: 5, info: "Layouts zähmen, ohne den Überblick zu verlieren.",
-      infoCss:
+  {
+    id: 5,
+    info: "Layouts zähmen, ohne den Überblick zu verlieren.",
+    infoCss:
       "Optik: Das Design nutzt einen modernen Look mit radialen Verläufen und starken Schatten (box-shadow), um Tiefe zu erzeugen. Orange (#ff6d19) dient als konsistente Akzentfarbe.Animationen: * @keyframes switch: Simuliert das Aussortieren einer Karte, indem sie zur Seite gleitet und sich dann mit verändertem z-index wieder in den Stapel einfügt.",
     infoJs:
       "Zustandsmanagement: Die Funktionen (toggleSignIn, toggleSignUp, toggleBack) steuern den Stapel, indem sie CSS-Klassen (active, active2) hinzufügen oder entfernen.Rendering-Fix: In toggleBack wird requestAnimationFrame genutzt, um sicherzustellen, dass der Browser das Entfernen der alten Klassen verarbeitet, bevor die neue Animation startet.",
-  
-   },
+  },
 ];
 // ########################## DIscription #######################
 // Discription
@@ -240,7 +263,6 @@ const img = document.querySelectorAll(".card-img");
 discriptionIcon.forEach((element, index) => {
   // Fügt jedem Icon einen Klick-Event-Listener hinzu
   element.addEventListener("click", () => {
-
     // PRÜFUNG: Ist der Info-Container aktuell leer?
     if (infounsichtbar[index].textContent === "") {
       const repoInfo = document.createElement("p");
