@@ -291,7 +291,6 @@ position: relative;
 scrollbar-width: none;
 }
 
-
 .card {
 
 display: flex;
@@ -374,7 +373,12 @@ background-image: linear-gradient(
     
   );
   scroll-snap-align: center;
-scale:0.7;
+
+}
+.wrapper-card{
+  width: clamp(28em,33%,30em);
+  height: 98%;
+
 }
 .unsichtbar{
 

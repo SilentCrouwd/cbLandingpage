@@ -111,24 +111,25 @@ scrollContainer.addEventListener(
 // --- 4. GALERIE-INTERAKTION (Smooth Hover & Snapping) ---
 const galerieContainer = document.querySelector(".galerie-container");
 const galiereCard = document.querySelectorAll(".galerie-card");
+const galieriewrapper=document.querySelectorAll('.wrapper-card')
 
-galiereCard.forEach((element) => {
+galieriewrapper.forEach((element,index) => {
   let hoverTimeout;
 
   // Mouseenter mit Delay gegen "flackernde" Animationen am Rand
   element.addEventListener("mouseenter", () => {
     clearTimeout(hoverTimeout);
     hoverTimeout = setTimeout(() => {
-      element.classList.add("active");
-      element.classList.remove("inactive");
+      galiereCard[index].classList.add("active");
+      galiereCard[index].classList.remove("inactive");
     }, 200);
   });
 
   // Mouseleave setzt die Karte zurück
   element.addEventListener("mouseleave", () => {
     clearTimeout(hoverTimeout);
-    element.classList.add("inactive");
-    element.classList.remove("active");
+    galiereCard[index].classList.add("inactive");
+    galiereCard[index].classList.remove("active");
   });
 });
 
