@@ -517,10 +517,10 @@ animation:  scale 2s ease forwards;
 
 }
 .animationGalerie{
-animation: runin ease 2s alternate forwards;
+animation: runin ease .7s alternate forwards;
 }
 
 .animationGalierereverse{
-animation: runin ease 2s  alternate-reverse forwards; 
+animation: runin ease .7s  alternate-reverse forwards; 
 
 }
