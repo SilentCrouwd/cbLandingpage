@@ -385,12 +385,15 @@ background-image: linear-gradient(
 }
 
 .unsichtbar{
-
+  width: 70%;
+align-items: center;
+justify-content: center;
   grid-column: 2;
   grid-row: 1/4;
 }
-.card-img{
 
+.card-img{
+position: relative;
 
   grid-column: 2;
   grid-row: 1/4;
@@ -483,6 +486,22 @@ filter: blur(15px);
     scale: 0.7;
   }
 }
+@keyframes runin{
+  from{
+filter: blur(15px);
+  opacity: 0.4;
+}
+
+  to{
+filter: blur(0px);
+opacity: 1;
+
+}
+}
+
+
+
+
 .animation {
   animation: popup ease 2s alternate forwards ;
 }
@@ -495,5 +514,13 @@ animation:  scale 2s ease forwards;
 }
 .inactive{
   animation:  rescale 2s ease forwards;
+
+}
+.animationGalerie{
+animation: runin ease 2s alternate forwards;
+}
+
+.animationGalierereverse{
+animation: runin ease 2s  alternate-reverse forwards; 
 
 }

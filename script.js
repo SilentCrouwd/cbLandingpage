@@ -111,9 +111,9 @@ scrollContainer.addEventListener(
 // --- 4. GALERIE-INTERAKTION (Smooth Hover & Snapping) ---
 const galerieContainer = document.querySelector(".galerie-container");
 const galiereCard = document.querySelectorAll(".galerie-card");
-const galieriewrapper=document.querySelectorAll('.wrapper-card')
+const galieriewrapper = document.querySelectorAll(".wrapper-card");
 
-galieriewrapper.forEach((element,index) => {
+galieriewrapper.forEach((element, index) => {
   let hoverTimeout;
 
   // Mouseenter mit Delay gegen "flackernde" Animationen am Rand
@@ -152,23 +152,47 @@ function scrollOnClick(direction) {
       left: scrollAmount,
       behavior: "smooth",
     });
-
   }
 }
-    document.getElementById('scoll-left').addEventListener('click', () => scrollOnClick('left'));
-document.getElementById('scroll-right').addEventListener('click', () => scrollOnClick('right'));
+document
+  .getElementById("scoll-left")
+  .addEventListener("click", () => scrollOnClick("left"));
+document
+  .getElementById("scroll-right")
+  .addEventListener("click", () => scrollOnClick("right"));
 
 // --- Github Projekt Beschreibung ---
 
-
-const gitImg=document.querySelectorAll('.git');
-gitImg.forEach(element => {
-  element.addEventListener('click',() => loadgit());
-  
+const gitImg = document.querySelectorAll(".git");
+gitImg.forEach((element) => {
+  element.addEventListener("click", () => loadgit());
 });
-function loadgit(){
-  window.open('https://github.com/SilentCrouwd?tab=repositories');
+function loadgit() {
+  window.open("https://github.com/SilentCrouwd?tab=repositories");
 }
+
+
+
+
+//array Pooject Beschreibung
+
+      const repositoryInfo = [
+        {
+          id: 0,
+          info: "Von der Datenbank bis zum letzten Pixel alles im Griff.",
+        },
+        { id: 1, info: "Code schreiben, den nicht nur der Compiler versteht." },
+        {
+          id: 2,
+          info: "Wo komplexe Algorithmen auf ästhetisches Design treffen.",
+        },
+        { id: 3, info: "Responsive Erlebnisse, die auf jedem Screen glänzen." },
+        {
+          id: 4,
+          info: "Stylesheets sind für mich keine Pflicht, sondern Kunst.",
+        },
+        { id: 5, info: "Layouts zähmen, ohne den Überblick zu verlieren." },
+      ];
 
 
 // Selektiert den Container (das Eltern-Element), in dem die Beschreibung erscheinen soll
@@ -189,26 +213,26 @@ discriptionIcon.forEach((element, index) => {
       // 1. Erstellt ein neues Absatz-Element (<p>) im Speicher
       const repoInfo = document.createElement("p");
 
+      
 
       //
-      //  hier entsteht noch ein Array für die Projekt Daten
       //
-      //
-      // 2. Weist dem neuen Element den gewünschten Text zu 
-      repoInfo.textContent = "test 123";
+      // 2.Array wird übergeben 
+      repoInfo.textContent = repositoryInfo[index].info;
 
       // 3. Setzt Klassen für das Styling (kombiniert zwei Klassen: 'p' und 'repoinfo')
       repoInfo.className = "p repoinfo";
 
       // 4. Fügt die Animations-Klasse hinzu, die du im CSS definiert hast
-      repoInfo.classList.add("animation");
+      repoInfo.classList.add("animationGalerie");
 
       // 5. Fügt das fertige <p>-Element in den Container "infounsichtbar" ein
       infounsichtbar.appendChild(repoInfo);
 
       // 6. Setzt die Deckkraft des zugehörigen Bildes auf 30%, um den Fokus auf den Text zu legen
       // Hier wird der 'index' genutzt, damit genau das richtige Bild angesprochen wird
-      img[index].style.opacity = "0.3";
+      img[index].classList.add("animationGalierereverse");
+            // img[index].style.opacity = "0";
     }
     // FALLS NICHT LEER: (Der User klickt erneut oder ein Text ist bereits da)
     else {
@@ -217,7 +241,8 @@ discriptionIcon.forEach((element, index) => {
       infounsichtbar.innerHTML = "";
 
       // 2. Setzt die Deckkraft des Bildes wieder auf 100% (Normalzustand)
-      img[index].style.opacity = "1";
+      img[index].classList.remove("animationGalierereverse");
+
     }
   });
 });
