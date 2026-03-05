@@ -1,3 +1,4 @@
+/* ################ ROOT################ */
 :root {
   --txt-color: #ffffff;
   --bg-color: #2c2c2c;
@@ -34,7 +35,7 @@ body {
   /* Stellt sicher, dass der Body die ganze Höhe einnimmt */
   min-height: 100vh;
 }
-/*Standarts*/
+/*################Standarts################*/
 h1,
 h2,
 h3 {
@@ -75,7 +76,7 @@ p {
   scale: 0.9;
 }
 
-/*Header bereich*/
+/*################Header bereich################*/
 
 .header-container {
   width: clamp(95%, 99vw, 80%);
@@ -111,7 +112,7 @@ p {
   min-width: 15em;
 }
 
-/*Main-Bereich*/
+/*################Main-Bereich################*/
 main {
   padding: 0;
   margin: 0;
@@ -131,7 +132,7 @@ main {
   align-items: center;
   margin-bottom: 1em;
 }
-/*Section 1*/
+/*################Section 1################*/
 .about {
   font-size: clamp(1.5em, 3vw, 2.5em);
   margin-top: 2em;
@@ -188,7 +189,7 @@ main {
 }
 
 
-/*maincontainer 2*/
+/*################Section 2################*/
 .main-container2 {
   max-width: 99%;
   height: 101vh;
@@ -261,7 +262,7 @@ main {
 
 
 
-/*Section 2 Github und Co*/
+/*################Section 2 Github und Co################*/
 .main-container3 {
   position: relative;
   max-width: 99%;
@@ -328,7 +329,7 @@ bottom: 10vh;
 }
 
 
-/* Section 4 */
+/*################ Section 4 ################*/
  
 .main-container4 {
   position: relative;
@@ -441,6 +442,8 @@ transition: all ease 1s ;
 
 
 
+/* 
+################### Keyframes and animations################### */
 
 
 @keyframes popup {
