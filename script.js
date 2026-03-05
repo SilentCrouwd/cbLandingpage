@@ -179,6 +179,8 @@ const repositoryInfo = [
     info: "Das Projekt ist eine interaktive Web-Schnittstelle für Authentifizierung, die einen physischen Kartenstapel imitiert. Anstatt klassische Seitenwechsel zu nutzen, werden die verschiedenen Ansichten (Willkommen, Login, Registrierung) durch CSS-Animationen ein- und ausgeschoben.",
     infoCss:
       "Optik: Das Design nutzt einen modernen Look mit radialen Verläufen und starken Schatten (box-shadow), um Tiefe zu erzeugen. Orange (#ff6d19) dient als konsistente Akzentfarbe.Animationen: * @keyframes switch: Simuliert das Aussortieren einer Karte, indem sie zur Seite gleitet und sich dann mit verändertem z-index wieder in den Stapel einfügt.",
+    infoJs:
+      "Zustandsmanagement: Die Funktionen (toggleSignIn, toggleSignUp, toggleBack) steuern den Stapel, indem sie CSS-Klassen (active, active2) hinzufügen oder entfernen.Rendering-Fix: In toggleBack wird requestAnimationFrame genutzt, um sicherzustellen, dass der Browser das Entfernen der alten Klassen verarbeitet, bevor die neue Animation startet.",
   },
   { id: 1, info: "Code schreiben, den nicht nur der Compiler versteht." },
   {
@@ -246,6 +248,37 @@ cssImg.forEach((element, index) => {
       cssInfo.className = "p repoinfo";
       cssInfo.classList.add("animationGalerie");
       infounsichtbar.appendChild(cssInfo);
+      img[index].classList.remove(
+        "animationGalierereverse",
+        "animationGalerie",
+      );
+      void img[index].offsetWidth; // hier muss der browser eine pause haben sonst erkennt er nicht das die klasse eine andere ist
+
+      img[index].classList.add("animationGalierereverse");
+    } else {
+      infounsichtbar.innerHTML = "";
+      img[index].classList.remove(
+        "animationGalierereverse",
+        "animationGalerie",
+      );
+      void img[index].offsetWidth; // hier muss der browser eine pause haben sonst erkennt er nicht das die klasse eine andere ist
+      img[index].classList.add("animationGalerie");
+    }
+  });
+});
+
+//  Js Discription
+const jsImg = document.querySelectorAll(".js-galerie");
+
+jsImg.forEach((element, index) => {
+  element.addEventListener("click", () => {
+    if (infounsichtbar.textContent === "") {
+      const jsInfo = document.createElement("p");
+
+      jsInfo.textContent = repositoryInfo[index].infoJs;
+      jsInfo.className = "p repoinfo";
+      jsInfo.classList.add("animationGalerie");
+      infounsichtbar.appendChild(jsInfo);
       img[index].classList.remove(
         "animationGalierereverse",
         "animationGalerie",
