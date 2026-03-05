@@ -171,29 +171,25 @@ function loadgit() {
   window.open("https://github.com/SilentCrouwd?tab=repositories");
 }
 
-
-
-
 //array Pooject Beschreibung
 
-      const repositoryInfo = [
-        {
-          id: 0,
-          info: "Von der Datenbank bis zum letzten Pixel alles im Griff.",
-        },
-        { id: 1, info: "Code schreiben, den nicht nur der Compiler versteht." },
-        {
-          id: 2,
-          info: "Wo komplexe Algorithmen auf ästhetisches Design treffen.",
-        },
-        { id: 3, info: "Responsive Erlebnisse, die auf jedem Screen glänzen." },
-        {
-          id: 4,
-          info: "Stylesheets sind für mich keine Pflicht, sondern Kunst.",
-        },
-        { id: 5, info: "Layouts zähmen, ohne den Überblick zu verlieren." },
-      ];
-
+const repositoryInfo = [
+  {
+    id: 0,
+    info: "Von der Datenbank bis zum letzten Pixel alles im Griff.",
+  },
+  { id: 1, info: "Code schreiben, den nicht nur der Compiler versteht." },
+  {
+    id: 2,
+    info: "Wo komplexe Algorithmen auf ästhetisches Design treffen.",
+  },
+  { id: 3, info: "Responsive Erlebnisse, die auf jedem Screen glänzen." },
+  {
+    id: 4,
+    info: "Stylesheets sind für mich keine Pflicht, sondern Kunst.",
+  },
+  { id: 5, info: "Layouts zähmen, ohne den Überblick zu verlieren." },
+];
 
 // Selektiert den Container (das Eltern-Element), in dem die Beschreibung erscheinen soll
 const infounsichtbar = document.getElementById("unsichtbar");
@@ -210,39 +206,20 @@ discriptionIcon.forEach((element, index) => {
   element.addEventListener("click", () => {
     // PRÜFUNG: Ist der Info-Container aktuell leer?
     if (infounsichtbar.textContent === "") {
-      // 1. Erstellt ein neues Absatz-Element (<p>) im Speicher
       const repoInfo = document.createElement("p");
 
-      
-
-      //
-      //
-      // 2.Array wird übergeben 
       repoInfo.textContent = repositoryInfo[index].info;
-
-      // 3. Setzt Klassen für das Styling (kombiniert zwei Klassen: 'p' und 'repoinfo')
       repoInfo.className = "p repoinfo";
-
-      // 4. Fügt die Animations-Klasse hinzu, die du im CSS definiert hast
       repoInfo.classList.add("animationGalerie");
-
-      // 5. Fügt das fertige <p>-Element in den Container "infounsichtbar" ein
       infounsichtbar.appendChild(repoInfo);
 
-      // 6. Setzt die Deckkraft des zugehörigen Bildes auf 30%, um den Fokus auf den Text zu legen
-      // Hier wird der 'index' genutzt, damit genau das richtige Bild angesprochen wird
       img[index].classList.add("animationGalierereverse");
-            // img[index].style.opacity = "0";
-    }
-    // FALLS NICHT LEER: (Der User klickt erneut oder ein Text ist bereits da)
-    else {
-      // 1. Leert den Inhalt des Containers komplett (löscht das <p>-Element)
-      // Das ist wichtig, damit das Element beim nächsten Klick wieder erstellt werden kann
+
+    } else {
       infounsichtbar.innerHTML = "";
-
-      // 2. Setzt die Deckkraft des Bildes wieder auf 100% (Normalzustand)
-      img[index].classList.remove("animationGalierereverse");
-
+img[index].classList.remove("animationGalierereverse", "animationGalerie");
+      void img[index].offsetWidth;// hier muss der browser eine pause haben sonst erkennt er nicht das die klasse eine andere ist 
+      img[index].classList.add("animationGalerie");
     }
   });
 });
