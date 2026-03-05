@@ -3,7 +3,7 @@
   --txt-color: #ffffff;
   --bg-color: #2c2c2c;
   --heading-color: #9764f6;
-  --secondary-color:#1ae1e8;
+  --secondary-color: #1ae1e8;
   --box-shadow:
     0 4px 8px var(--heading-color), 0 1px 3px var(--secondary-color);
 }
@@ -18,6 +18,9 @@ html {
 section {
   scroll-snap-align: center;
 }
+footer {
+  scroll-snap-align: center;
+}
 body {
   line-height: 1.5;
   background-color: var(--bg-color);
@@ -26,19 +29,26 @@ body {
   padding: 0;
   color: #333;
   scroll-behavior: smooth;
-  /* Deine Flexbox-Konfiguration */
   display: flex;
   justify-content: start;
   align-items: center;
   flex-direction: column;
 
+  background-color: #2c2c2c; /* Fallback */
+  background-image:
+    radial-gradient(at 0% 0%, rgba(151, 100, 246, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(26, 225, 232, 0.05) 0px, transparent 50%);
+  background-attachment: fixed;
+
   /* Stellt sicher, dass der Body die ganze Höhe einnimmt */
   min-height: 100vh;
 }
+
 /*################Standarts################*/
 h1,
 h2,
-h3 {
+h3,
+h4 {
   color: var(--heading-color);
   line-height: 1.2;
 }
@@ -88,7 +98,22 @@ p {
   justify-content: center;
   align-items: center;
   text-align: center;
+  /* Hintergrund-Farbe (Fallback) */
   background-color: var(--bg-color);
+
+  /* WICHTIG: Gradient über das Bild legen */
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(44, 44, 44, 0.85),
+      /* Deine --bg-color (#2c2c2c) mit 85% Deckkraft */ rgba(44, 44, 44, 0.7)
+        /* Und mit 70% Deckkraft */
+    ),
+    url("Img/BackgroundAi.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-radius: 10px;
   margin-top: 2em;
 }
@@ -188,7 +213,6 @@ main {
   border: solid 1px var(--secondary-color);
 }
 
-
 /*################Section 2################*/
 .main-container2 {
   max-width: 99%;
@@ -203,7 +227,6 @@ main {
 }
 .main-container2 > p {
   box-shadow: var(--box-shadow);
-
 }
 .plate {
   padding: 0.1em;
@@ -260,9 +283,7 @@ main {
   width: clamp(5em, 8vw, 10em);
 }
 
-
-
-/*################Section 2 Github und Co################*/
+/*################Section 3 Github und Co################*/
 .main-container3 {
   position: relative;
   max-width: 99%;
@@ -286,51 +307,41 @@ main {
   scrollbar-width: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
-scrollbar-color: var(--secondary-color) var(--heading-color);
-box-shadow: var(--box-shadow);
-position: relative;
-scrollbar-width: none;
+  scrollbar-color: var(--secondary-color) var(--heading-color);
+  box-shadow: var(--box-shadow);
+  position: relative;
+  scrollbar-width: none;
 }
 
 .card {
-
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   margin-right: 1em;
-flex: 0 0 100%; 
-scroll-snap-align: center;
+  flex: 0 0 100%;
+  scroll-snap-align: center;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(
-    to right top,
-    #9764f649,
-      #1ae1e84d
-
-    
-  );
+  background-image: linear-gradient(to right top, #9764f649, #1ae1e84d);
 }
 
-
-.skill{
+.skill {
   padding: 1em;
 }
-.card-icon{
-  width: clamp(5em,10vh,15em);
+.card-icon {
+  width: clamp(5em, 10vh, 15em);
   height: auto;
 }
-.scrollme{
+.scrollme {
   position: absolute;
-bottom: 10vh;
+  bottom: 10vh;
   padding: 0;
   margin: 0;
-  
 }
 
-
 /*################ Section 4 ################*/
- 
+
 .main-container4 {
   position: relative;
   max-width: 99%;
@@ -340,133 +351,168 @@ bottom: 10vh;
   align-items: center;
   justify-content: space-evenly;
 }
-.galerie-container{
+.galerie-container {
   width: clamp(24em, 90vw, 90em);
   height: clamp(25em, 90vh, 35em);
-display: flex;
-flex-wrap: nowrap;
-justify-content: flex-start;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
   align-items: center;
-  border: solid;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
 }
-.wrapper-card{
-  width: clamp(28em,33%,30em);
+.wrapper-card {
+  width: clamp(28em, 33%, 30em);
   height: 98%;
   margin-right: 1em;
   flex-shrink: 0;
-flex-grow: 0; 
+  flex-grow: 0;
 }
 
-.galerie-card{
-position: relative;
+.galerie-card {
+  position: relative;
   display: grid;
   align-items: center;
   justify-items: center;
   justify-content: center;
   align-content: center;
-grid-template-columns: 20% 60% 20%;
-grid-template-rows: 20% 60% 20%;
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: 20% 60% 20%;
   margin-right: 1em;
-flex-shrink: 0;
-flex-grow: 0; 
-width: clamp(28em,33%,30em);
-height: 98%;
-background-image: linear-gradient(
-    to right top,
-    #9764f649,
-      #1ae1e84d
-
-    
-  );
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: clamp(28em, 33%, 30em);
+  height: 98%;
+  background-image: linear-gradient(to right top, #9764f649, #1ae1e84d);
   scroll-snap-align: center;
-
 }
 
-.unsichtbar{
+.unsichtbar {
   width: 70%;
-align-items: center;
-justify-content: center;
+  align-items: center;
+  justify-content: center;
   grid-column: 2;
   grid-row: 1/4;
 }
 
-.card-img{
+.card-img {
   width: 95%;
-position: relative;
+  position: relative;
 
   grid-column: 2;
   grid-row: 1/4;
 }
-.js{
-grid-row: 3;
+.js {
+  grid-row: 3;
   grid-column: 1;
 }
-.js:hover{
+.js:hover {
   fill: var(--secondary-color);
-  transition: all ease 1s ;
+  transition: all ease 1s;
 }
-.html{
+.html {
   grid-column: 3;
-grid-row: 1;
+  grid-row: 1;
 }
-.git{
+.git {
   grid-row: 3;
   grid-column: 3;
   cursor: pointer;
 }
-.git:hover{
-fill: var(--secondary-color);
-transition: all ease 1s ;
-
+.git:hover {
+  fill: var(--secondary-color);
+  transition: all ease 1s;
 }
-.discription{
+.discription {
   grid-column: 1;
   grid-row: 2;
 }
-.discription:hover{
-fill: var(--secondary-color);
-transition: all ease 1s ;
-
-}
-.css:hover{
+.discription:hover {
   fill: var(--secondary-color);
-  transition: all ease 1s ;
+  transition: all ease 1s;
 }
-.scrl-btns{
-  border:solid;
-  width: 50%;
+.css:hover {
+  fill: var(--secondary-color);
+  transition: all ease 1s;
+}
+.scrl-btns {
+
+  width: clamp(20em,10vw,25em);
   height: 5%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+}
+
+/* ########################Footer Section############### */
+
+.footerinfo {
+  display: grid;
+  grid-template-columns:repeat(3, clamp(10em,33%,25em)) ;
+  justify-items: center;
+  align-items: center;
+gap: 1em;
+}
+.footer-content {
+  padding: 2em;
+  justify-items: center;
+align-items: center;
+align-content: center;
+}
+.footer-content h4{
+  text-align: center;
 
 }
 
+.footer-bottom {
+  border: solid;
+}
+.navigation a {
+  text-decoration: none;
+  color: var(--txt-color);
+  font-size: 0.75em;
+}
 
+.navigation a {
+    text-decoration: none;
+    color: var(--txt-color);
+    font-size: 0.75em;
+    position: relative; /* DER ANKER: Damit 0,0 hier anfängt */
+    padding: 4px 8px;  /* Etwas Platz für den Punkt zum Laufen */
+    display: inline-block; /* WICHTIG: Damit width/height berechnet werden */
+    transition: color 0.3s;
+}
 
+.navigation a::after {
+    content: "";
+    background-color: #9764f6;
+    width: 4px;
+    height: 4px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0 0 5px var(--secondary-color); /* Kleiner Glow-Effekt */
+}
 
-
-
-
-
-
-
+.navigation a:hover::after {
+    opacity: 1;
+    /* Wir nutzen linear, damit er nicht an den Ecken bremst */
+    animation: runover 1.5s linear infinite; 
+}
 
 /* 
 ################### Keyframes and animations################### */
 
-
 @keyframes popup {
   from {
-filter: blur(15px);
+    filter: blur(15px);
   }
   to {
     filter: blur(0px);
   }
 }
-
 
 @keyframes slide {
   from {
@@ -479,57 +525,72 @@ filter: blur(15px);
   }
 }
 
-@keyframes scale{
-  from{
+@keyframes scale {
+  from {
     scale: 0.7;
   }
-  to{
+  to {
     scale: 1;
   }
 }
-@keyframes rescale{
-  from{
+@keyframes rescale {
+  from {
     scale: 1;
   }
-  to{
+  to {
     scale: 0.7;
   }
 }
-@keyframes runin{
-  from{
-filter: blur(15px);
-  opacity: 0.4;
+@keyframes runin {
+  from {
+    filter: blur(15px);
+    opacity: 0.4;
+  }
+
+  to {
+    filter: blur(0px);
+    opacity: 1;
+  }
 }
-
-  to{
-filter: blur(0px);
-opacity: 1;
-
+@keyframes runover {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  25% {
+    top: 0;
+    left: calc(100% - 6px); /* Oben Rechts */
+  }
+  50% {
+    top: calc(100% - 6px);
+    left: calc(100% - 6px); /* Unten Rechts */
+  }
+  75% {
+    top: calc(100% - 6px);
+    left: 0;               /* Unten Links */
+  }
+  100% {
+    top: 0;
+    left: 0;               /* Zurück zum Start */
+  }
 }
-}
-
-
-
 
 .animation {
-  animation: popup ease 2s alternate forwards ;
+  animation: popup ease 2s alternate forwards;
 }
 .animationPlate {
   transition: opacity 1s ease;
 }
-.active{
-animation:  scale 2s ease forwards;
-
+.active {
+  animation: scale 2s ease forwards;
 }
-.inactive{
-  animation:  rescale 2s ease forwards;
-
+.inactive {
+  animation: rescale 2s ease forwards;
 }
-.animationGalerie{
-animation: runin ease .7s alternate forwards;
+.animationGalerie {
+  animation: runin ease 0.7s alternate forwards;
 }
 
-.animationGalierereverse{
-animation: runin ease .7s  alternate-reverse forwards; 
-
+.animationGalierereverse {
+  animation: runin ease 0.7s alternate-reverse forwards;
 }

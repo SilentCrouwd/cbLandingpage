@@ -108,7 +108,7 @@ scrollContainer.addEventListener(
   { passive: false },
 );
 
-// --- 4. GALERIE-INTERAKTION (Smooth Hover & Snapping) ---
+// --- 4. GALERIE-INTERAKTION (Smooth Hover & S napping) ---
 const galerieContainer = document.querySelector(".galerie-container");
 const galiereCard = document.querySelectorAll(".galerie-card");
 const galieriewrapper = document.querySelectorAll(".wrapper-card");
@@ -162,7 +162,7 @@ document
   .addEventListener("click", () => scrollOnClick("right"));
 
 // --- Github Projekt Beschreibung ---
-
+// Sozial media on klick events 
 const gitImg = document.querySelectorAll(".git");
 gitImg.forEach((element) => {
   element.addEventListener("click", () => loadgit());
@@ -170,6 +170,18 @@ gitImg.forEach((element) => {
 function loadgit() {
   window.open("https://github.com/SilentCrouwd?tab=repositories");
 }
+// #### Für Linkedin ####
+ 
+const LinkedinImg=document.querySelectorAll('.linked')
+
+LinkedinImg.forEach(element => {
+  element.addEventListener('click',()=> loadLinked())
+  });
+
+function loadLinked(){
+  window.open("https://www.linkedin.com/in/christian-buchholz-36aa60234/")
+}
+
 
 //array Pooject Beschreibung
 
@@ -348,5 +360,15 @@ jsImg.forEach((element, index) => {
       void img[index].offsetWidth; // hier muss der browser eine pause haben sonst erkennt er nicht das die klasse eine andere ist
       img[index].classList.add("animationGalerie");
     }
+  });
+});
+
+const kontaktBtn = document.querySelector('.kontakt-btn');
+
+kontaktBtn.addEventListener('click', () => {
+  const ziel = document.querySelector('.footer-bottom'); 
+  ziel.scrollIntoView({ 
+    behavior: 'smooth', 
+    block: 'start' 
   });
 });
