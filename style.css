@@ -64,27 +64,26 @@ p {
 }
 
 .btn {
-  width: fit-content;
-
-  background-color: var(--heading-color);
+  background: var(--heading-color);
   color: var(--txt-color);
-  border: solid 1px transparent;
-  padding: 10px 25px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition:
-    transform 0.2s,
-    background 0.3s;
+  border: 1px solid var(--secondary-color);
+  padding: 12px 28px;
+  border-radius: 4px; /* Eckiger wirkt oft technischer */
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
 }
 
 .btn:hover {
-  border: solid 1px var(--secondary-color);
-  box-shadow: var(--box-shadow);
+  background: var(--secondary-color);
+  color: #000;
+  box-shadow: 0 0 20px var(--secondary-color);
+  transform: translateY(-2px);
 }
-.btn:active {
-  scale: 0.9;
-}
+
 
 /*################Header bereich################*/
 
@@ -436,8 +435,7 @@ main {
   transition: all ease 1s;
 }
 .scrl-btns {
-
-  width: clamp(20em,10vw,25em);
+  width: clamp(20em, 10vw, 25em);
   height: 5%;
   display: flex;
   align-items: center;
@@ -448,20 +446,19 @@ main {
 
 .footerinfo {
   display: grid;
-  grid-template-columns:repeat(3, clamp(10em,33%,25em)) ;
+  grid-template-columns: repeat(3, clamp(10em, 33%, 25em));
   justify-items: center;
   align-items: center;
-gap: 1em;
+  gap: 1em;
 }
 .footer-content {
   padding: 2em;
   justify-items: center;
-align-items: center;
-align-content: center;
+  align-items: center;
+  align-content: center;
 }
-.footer-content h4{
+.footer-content h4 {
   text-align: center;
-
 }
 
 .footer-bottom {
@@ -474,32 +471,32 @@ align-content: center;
 }
 
 .navigation a {
-    text-decoration: none;
-    color: var(--txt-color);
-    font-size: 0.75em;
-    position: relative; /* DER ANKER: Damit 0,0 hier anfängt */
-    padding: 4px 8px;  /* Etwas Platz für den Punkt zum Laufen */
-    display: inline-block; /* WICHTIG: Damit width/height berechnet werden */
-    transition: color 0.3s;
+  text-decoration: none;
+  color: var(--txt-color);
+  font-size: 0.75em;
+  position: relative; /* DER ANKER: Damit 0,0 hier anfängt */
+  padding: 4px 8px; /* Etwas Platz für den Punkt zum Laufen */
+  display: inline-block; /* WICHTIG: Damit width/height berechnet werden */
+  transition: color 0.3s;
 }
 
 .navigation a::after {
-    content: "";
-    background-color: #9764f6;
-    width: 4px;
-    height: 4px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    pointer-events: none;
-    box-shadow: 0 0 5px var(--secondary-color); /* Kleiner Glow-Effekt */
+  content: "";
+  background-color: #9764f6;
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 0 5px var(--secondary-color); /* Kleiner Glow-Effekt */
 }
 
 .navigation a:hover::after {
-    opacity: 1;
-    /* Wir nutzen linear, damit er nicht an den Ecken bremst */
-    animation: runover 1.5s linear infinite; 
+  opacity: 1;
+  /* Wir nutzen linear, damit er nicht an den Ecken bremst */
+  animation: runover 1.5s linear infinite;
 }
 
 /* 
@@ -552,28 +549,8 @@ align-content: center;
     opacity: 1;
   }
 }
-@keyframes runover {
-  0% {
-    top: 0;
-    left: 0;
-  }
-  25% {
-    top: 0;
-    left: calc(100% - 6px); /* Oben Rechts */
-  }
-  50% {
-    top: calc(100% - 6px);
-    left: calc(100% - 6px); /* Unten Rechts */
-  }
-  75% {
-    top: calc(100% - 6px);
-    left: 0;               /* Unten Links */
-  }
-  100% {
-    top: 0;
-    left: 0;               /* Zurück zum Start */
-  }
-}
+
+
 
 .animation {
   animation: popup ease 2s alternate forwards;
