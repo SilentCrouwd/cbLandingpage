@@ -75,7 +75,7 @@ p {
 }
 
 .btn::after {
-  content: "tackt";
+  content: "_me";
   display: flex;
   width: 7.5em;
   height: 2.8em;
@@ -95,7 +95,7 @@ p {
 }
 
 .btn::before {
-  content: "Kon";
+  content: "Hover";
   color: var(--bg-color);
   display: flex;
   width: 7.5em;
@@ -602,7 +602,28 @@ main {
     opacity: 1;
   }
 }
-
+@keyframes runover {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  25% {
+    top: 0;
+    left: calc(100% - 4px); /* Oben rechts */
+  }
+  50% {
+    top: calc(100% - 4px);
+    left: calc(100% - 4px); /* Unten rechts */
+  }
+  75% {
+    top: calc(100% - 4px);
+    left: 0; /* Unten links */
+  }
+  100% {
+    top: 0;
+    left: 0; /* Zurück zum Start */
+  }
+}
 .animation {
   animation: popup ease 2s alternate forwards;
 }

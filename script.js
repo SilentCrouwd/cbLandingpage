@@ -162,7 +162,7 @@ document
   .addEventListener("click", () => scrollOnClick("right"));
 
 // --- Github Projekt Beschreibung ---
-// Sozial media on klick events 
+// Sozial media on klick events
 const gitImg = document.querySelectorAll(".git");
 gitImg.forEach((element) => {
   element.addEventListener("click", () => loadgit());
@@ -171,17 +171,16 @@ function loadgit() {
   window.open("https://github.com/SilentCrouwd?tab=repositories");
 }
 // #### Für Linkedin ####
- 
-const LinkedinImg=document.querySelectorAll('.linked')
 
-LinkedinImg.forEach(element => {
-  element.addEventListener('click',()=> loadLinked())
-  });
+const LinkedinImg = document.querySelectorAll(".linked");
 
-function loadLinked(){
-  window.open("https://www.linkedin.com/in/christian-buchholz-36aa60234/")
+LinkedinImg.forEach((element) => {
+  element.addEventListener("click", () => loadLinked());
+});
+
+function loadLinked() {
+  window.open("https://www.linkedin.com/in/christian-buchholz-36aa60234/");
 }
-
 
 //array Pooject Beschreibung
 
@@ -236,11 +235,23 @@ API-Integration: Ein besonderes Feature ist die Funktion addCatData. Hier wird m
   },
   {
     id: 3,
-    info: "Responsive Erlebnisse, die auf jedem Screen glänzen.",
-    infoCss:
-      "Optik: Das Design nutzt einen modernen Look mit radialen Verläufen und starken Schatten (box-shadow), um Tiefe zu erzeugen. Orange (#ff6d19) dient als konsistente Akzentfarbe.Animationen: * @keyframes switch: Simuliert das Aussortieren einer Karte, indem sie zur Seite gleitet und sich dann mit verändertem z-index wieder in den Stapel einfügt.",
-    infoJs:
-      "Zustandsmanagement: Die Funktionen (toggleSignIn, toggleSignUp, toggleBack) steuern den Stapel, indem sie CSS-Klassen (active, active2) hinzufügen oder entfernen.Rendering-Fix: In toggleBack wird requestAnimationFrame genutzt, um sicherzustellen, dass der Browser das Entfernen der alten Klassen verarbeitet, bevor die neue Animation startet.",
+    info: `Funktionsumfang:
+Entwicklung einer responsiven Web-Applikation zur Echtzeit-Umrechnung globaler Währungen. Die Anwendung ermöglicht die Eingabe beliebiger Beträge und berechnet den Zielwert basierend auf tagesaktuellen Wechselkursen.
+
+Fokus:
+Priorisierung von sauberem Code-Design, effizientem API-Handling und einer barrierefreien Benutzeroberfläche durch konsistente Nutzung von CSS-Variablen und semantischen Elementen.
+`,
+    infoCss: `Layout-Engines: Implementierung komplexer Raster mit Flexbox und CSS Grid.
+Responsive Design: Anwendung von Media Queries und modernen Funktionen wie clamp(), min() und max() für fluide Layouts.
+Custom Properties: Nutzung von CSS-Variablen (:root) für konsistente Design-Systeme und einfache Wartbarkeit.
+Box-Modell: Präzise Steuerung von Content, Padding, Border und Margin unter Verwendung von box-sizing: border-box.,
+     `,
+
+    infoJs: `Asynchrone Programmierung: Datenabfrage von REST-APIs mittels fetch, Promises und async/await.
+DOM-Manipulation: Dynamisches Erstellen, Ändern und Löschen von HTML-Elementen über die Web-API (createElement, appendChild).
+Event-Handling: Steuerung der Benutzerinteraktion durch effiziente Event-Listener.
+Logik und Daten: Anwendung moderner Syntax wie Destructuring, Template Literals und Array-Methoden (map, filter, forEach) zur Datenverarbeitung.    
+  `,
   },
 
   {
@@ -363,12 +374,12 @@ jsImg.forEach((element, index) => {
   });
 });
 
-const kontaktBtn = document.querySelector('.kontakt-btn');
+const kontaktBtn = document.querySelector(".kontakt-btn");
 
-kontaktBtn.addEventListener('click', () => {
-  const ziel = document.querySelector('.footer-bottom'); 
-  ziel.scrollIntoView({ 
-    behavior: 'smooth', 
-    block: 'start' 
+kontaktBtn.addEventListener("click", () => {
+  const ziel = document.querySelector(".footer-bottom");
+  ziel.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
   });
 });
